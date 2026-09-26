@@ -25,6 +25,15 @@ shape = SubResource("CircleShape2D_player")
 [node name="EvilSpawner" type="Node2D" parent="." unique_id=-1437606295]
 script = ExtResource("2_evil")
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="HUD"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 100.0
+offset_bottom = 24.0
+text = "Time: 10"
+
 [node name="EndScreen" type="CanvasLayer" parent="." unique_id=219958000]
 visible = false
 script = ExtResource("3_end_screen")

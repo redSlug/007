@@ -5,7 +5,11 @@ const EvilCharacterScript = preload("res://scripts/evil_character.gd")
 @export var count = 3
 @export var sprite_scale = 0.25
 @export var min_distance = 60.0
+@export var max_level = 3
+@export var level_complete_pause = 2.0
+@export var level_time_limit = 10.0
 @onready var end_screen = get_node("../EndScreen")
+@onready var timer_label = get_node("../HUD/TimerLabel")
 
 var evil_variants = [
 	{"texture": preload("res://evil/green.svg"), "sound": preload("res://sfx/green.wav")},
@@ -14,18 +18,59 @@ var evil_variants = [
 	{"texture": preload("res://evil/shadow.svg"), "sound": preload("res://sfx/shadow.wav")},
 ]
 
-func _process(_delta):
+var current_level = 1
+var level_transitioning = false
+var game_over = false
+var time_remaining = 0.0
+
+func _process(delta):
+	if game_over or level_transitioning:
+		return
+
+	time_remaining -= delta
+	timer_label.text = "Time: %d" % maxi(ceili(time_remaining), 0)
+	if time_remaining <= 0:
+		_on_time_up()
+		return
+
 	_detect_end()
 
 func _detect_end():
 	if get_child_count() == 0:
-		end_screen.visible = true
+		_on_level_cleared()
+
+func _on_level_cleared():
+	level_transitioning = true
+	if current_level >= max_level:
+		end_screen.show_message("You Won!")
+	else:
+		end_screen.show_message("Great job, Level %d complete!" % current_level)
+		await get_tree().create_timer(level_complete_pause).timeout
+		end_screen.hide_message()
+		current_level += 1
+		level_transitioning = false
+		_spawn_level()
+
+func _on_time_up():
+	game_over = true
+	for evil in get_children():
+		evil.queue_free()
+	end_screen.show_message("Sorry, Game Over")
 
 func _ready():
+	_spawn_level()
+
+func _spawn_level():
+	time_remaining = level_time_limit
+
+	var level_count = count
+	for i in range(current_level - 1):
+		level_count *= 2
+
 	var viewport_size = get_viewport_rect().size
 	var margin = 32.0
 	var placed_positions = []
-	for i in range(count):
+	for i in range(level_count):
 		var pos = _find_spawn_position(viewport_size, margin, placed_positions)
 		placed_positions.append(pos)
 		var evil = _create_evil_character()
