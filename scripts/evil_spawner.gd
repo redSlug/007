@@ -2,6 +2,7 @@ extends Node2D
 
 const EvilCharacterScript = preload("res://scripts/evil_character.gd")
 const VictoryMusic = preload("res://sfx/victory.wav")
+const GameOverMusic = preload("res://sfx/game_over.wav")
 
 @export var count = 3
 @export var sprite_scale = 0.25
@@ -53,17 +54,21 @@ func _on_level_cleared():
 		level_transitioning = false
 		_spawn_level()
 
-func _play_victory_music():
+func _play_music(stream: AudioStream):
 	var player = AudioStreamPlayer.new()
-	player.stream = VictoryMusic
+	player.stream = stream
 	add_child(player)
 	player.play()
+
+func _play_victory_music():
+	_play_music(VictoryMusic)
 
 func _on_time_up():
 	game_over = true
 	for evil in get_children():
 		evil.queue_free()
 	end_screen.show_message("Time up! Game Over")
+	_play_music(GameOverMusic)
 
 func _ready():
 	_spawn_level()
