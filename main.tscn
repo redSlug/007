@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mf66bxpxm1ae" path="res://scripts/player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_ig7tw"]
-[ext_resource type="Script" path="res://scripts/evil_spawner.gd" id="2_evil"]
+[ext_resource type="Script" uid="uid://cfr6rqcyfoc3q" path="res://scripts/evil_spawner.gd" id="2_evil"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_player"]
 radius = 32.0
@@ -10,16 +10,24 @@ radius = 32.0
 [node name="Node2D" type="Node" unique_id=422408999]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1727476714]
-position = Vector2(161, 141)
 z_index = 1
+position = Vector2(161, 141)
 script = ExtResource("1_0xm2m")
 
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=1138456137]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ig7tw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=471749349]
 shape = SubResource("CircleShape2D_player")
 
-[node name="EvilSpawner" type="Node2D" parent="." unique_id=2857361001]
+[node name="EvilSpawner" type="Node2D" parent="." unique_id=-1437606295]
 script = ExtResource("2_evil")
+
+[node name="EndScreen" type="CanvasLayer" parent="." unique_id=219958000]
+visible = false
+
+[node name="WinText" type="Label" parent="EndScreen" unique_id=450815155]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "You Won!"

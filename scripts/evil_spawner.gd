@@ -5,6 +5,7 @@ const EvilCharacterScript = preload("res://scripts/evil_character.gd")
 @export var count = 3
 @export var sprite_scale = 0.25
 @export var min_distance = 60.0
+@onready var end_screen = get_node("../EndScreen")
 
 var evil_textures = [
 	preload("res://evil/green.svg"),
@@ -12,6 +13,13 @@ var evil_textures = [
 	preload("res://evil/red_nose.svg"),
 	preload("res://evil/shadow.svg"),
 ]
+
+func _process(_delta):
+	_detect_end()
+
+func _detect_end():
+	if get_child_count() == 0:
+		end_screen.visible = true
 
 func _ready():
 	var viewport_size = get_viewport_rect().size
@@ -60,5 +68,5 @@ func _create_evil_character() -> Area2D:
 	circle.radius = texture.get_width() * sprite_scale / 2.0
 	collision_shape.shape = circle
 	area.add_child(collision_shape)
-
+	
 	return area
