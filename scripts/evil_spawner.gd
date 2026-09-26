@@ -1,13 +1,14 @@
 extends Node2D
 
 const EvilCharacterScript = preload("res://scripts/evil_character.gd")
+const VictoryMusic = preload("res://sfx/victory.wav")
 
 @export var count = 3
 @export var sprite_scale = 0.25
 @export var min_distance = 60.0
 @export var max_level = 3
 @export var level_complete_pause = 2.0
-@export var level_time_limit = 5.0
+@export var level_time_limit = 7.0
 @onready var end_screen = get_node("../EndScreen")
 @onready var timer_label = get_node("../HUD/TimerLabel")
 
@@ -43,6 +44,7 @@ func _on_level_cleared():
 	level_transitioning = true
 	if current_level >= max_level:
 		end_screen.show_message("You Won!")
+		_play_victory_music()
 	else:
 		end_screen.show_message("Level %d complete!" % current_level)
 		await get_tree().create_timer(level_complete_pause).timeout
@@ -51,11 +53,17 @@ func _on_level_cleared():
 		level_transitioning = false
 		_spawn_level()
 
+func _play_victory_music():
+	var player = AudioStreamPlayer.new()
+	player.stream = VictoryMusic
+	add_child(player)
+	player.play()
+
 func _on_time_up():
 	game_over = true
 	for evil in get_children():
 		evil.queue_free()
-	end_screen.show_message("Time out - Game Over")
+	end_screen.show_message("Time up! Game Over")
 
 func _ready():
 	_spawn_level()
