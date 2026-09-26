@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mf66bxpxm1ae" path="res://scripts/player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="Script" path="res://scripts/sphere.gd" id="2_sphere"]
 
 [node name="Node2D" type="Node" unique_id=422408999]
 
@@ -12,3 +13,7 @@ script = ExtResource("1_0xm2m")
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D" unique_id=1138456137]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ig7tw")
+
+[node name="Sphere" type="Node2D" parent="." unique_id=2857361001]
+position = Vector2(100, 80)
+script = ExtResource("2_sphere")

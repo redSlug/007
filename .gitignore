@@ -1,6 +1,5 @@
 # Godot-specific ignores
 .godot/
-export_presets.cfg
 
 # OS / Editor generated files
 .DS_Store
