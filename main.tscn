@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://mf66bxpxm1ae" path="res://scripts/player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://cfr6rqcyfoc3q" path="res://scripts/evil_spawner.gd" id="2_evil"]
+[ext_resource type="Script" path="res://scripts/end_screen.gd" id="3_end_screen"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_player"]
 radius = 32.0
@@ -26,8 +27,11 @@ script = ExtResource("2_evil")
 
 [node name="EndScreen" type="CanvasLayer" parent="." unique_id=219958000]
 visible = false
+script = ExtResource("3_end_screen")
 
 [node name="WinText" type="Label" parent="EndScreen" unique_id=450815155]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "You Won!"
+horizontal_alignment = 1
+vertical_alignment = 1
