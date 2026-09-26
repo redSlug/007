@@ -1,6 +1,10 @@
 # 007
 
-007
+A game built for [RCade](https://rcade.recurse.com).
+
+## Demo
+
+[![007 gameplay](https://img.youtube.com/vi/2or30rUN1Gs/maxresdefault.jpg)](https://youtube.com/shorts/2or30rUN1Gs)
 
 ## About RCade
 
