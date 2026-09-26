@@ -7,11 +7,11 @@ const EvilCharacterScript = preload("res://scripts/evil_character.gd")
 @export var min_distance = 60.0
 @onready var end_screen = get_node("../EndScreen")
 
-var evil_textures = [
-	preload("res://evil/green.svg"),
-	preload("res://evil/horns.svg"),
-	preload("res://evil/red_nose.svg"),
-	preload("res://evil/shadow.svg"),
+var evil_variants = [
+	{"texture": preload("res://evil/green.svg"), "sound": preload("res://sfx/green.wav")},
+	{"texture": preload("res://evil/horns.svg"), "sound": preload("res://sfx/horns.wav")},
+	{"texture": preload("res://evil/red_nose.svg"), "sound": preload("res://sfx/red_nose.wav")},
+	{"texture": preload("res://evil/shadow.svg"), "sound": preload("res://sfx/shadow.wav")},
 ]
 
 func _process(_delta):
@@ -51,10 +51,12 @@ func _find_spawn_position(viewport_size: Vector2, margin: float, placed_position
 	return pos
 
 func _create_evil_character() -> Area2D:
-	var texture = evil_textures[randi() % evil_textures.size()]
+	var variant = evil_variants[randi() % evil_variants.size()]
+	var texture = variant["texture"]
 
 	var area = Area2D.new()
 	area.set_script(EvilCharacterScript)
+	area.explosion_sound = variant["sound"]
 
 	var sprite = Sprite2D.new()
 	sprite.name = "Sprite2D"

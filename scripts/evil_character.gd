@@ -1,7 +1,6 @@
 extends Area2D
 
-const ExplosionSound = preload("res://sfx/explosion.wav")
-
+var explosion_sound: AudioStream
 var exploding = false
 
 func _ready():
@@ -29,8 +28,10 @@ func explode():
 	tween.chain().tween_callback(queue_free)
 
 func _play_explosion_sound():
+	if not explosion_sound:
+		return
 	var player = AudioStreamPlayer.new()
-	player.stream = ExplosionSound
+	player.stream = explosion_sound
 	get_tree().current_scene.add_child(player)
 	player.play()
 	player.finished.connect(player.queue_free)
