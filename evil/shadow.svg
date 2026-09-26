@@ -1,0 +1,31 @@
+
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="256" height="256" shape-rendering="crispEdges">
+  <!-- Background Glow -->
+  <rect x="20" y="16" width="24" height="24" fill="#052e16"/>
+  <!-- Dark Hood Outer -->
+  <rect x="20" y="12" width="24" height="4" fill="#0f172a"/>
+  <rect x="16" y="16" width="32" height="8" fill="#0f172a"/>
+  <rect x="12" y="24" width="40" height="32" fill="#0f172a"/>
+  <!-- Hood Inner Shadow -->
+  <rect x="20" y="20" width="24" height="20" fill="#020617"/>
+  <rect x="24" y="16" width="16" height="4" fill="#020617"/>
+  <!-- Skull Face Base -->
+  <rect x="24" y="24" width="16" height="12" fill="#e2e8f0"/>
+  <!-- Eye Sockets & Glowing Pupils -->
+  <rect x="26" y="26" width="4" height="4" fill="#020617"/>
+  <rect x="34" y="26" width="4" height="4" fill="#020617"/>
+  <rect x="27" y="27" width="2" height="2" fill="#22c55e"/>
+  <rect x="35" y="27" width="2" height="2" fill="#22c55e"/>
+  <!-- Nose Hole -->
+  <rect x="31" y="30" width="2" height="2" fill="#020617"/>
+  <!-- Teeth / Jaw -->
+  <rect x="26" y="33" width="2" height="3" fill="#020617"/>
+  <rect x="29" y="33" width="2" height="3" fill="#020617"/>
+  <rect x="33" y="33" width="2" height="3" fill="#020617"/>
+  <rect x="36" y="33" width="2" height="3" fill="#020617"/>
+  <!-- Robe Details / Magic Collar -->
+  <rect x="16" y="40" width="32" height="4" fill="#1e1b4b"/>
+  <rect x="28" y="44" width="8" height="16" fill="#16a34a"/>
+  <rect x="30" y="48" width="4" height="12" fill="#4ade80"/>
+</svg>

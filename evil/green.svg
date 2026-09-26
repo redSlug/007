@@ -1,0 +1,33 @@
+
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="256" height="256" shape-rendering="crispEdges">
+  <!-- Ears -->
+  <rect x="4" y="16" width="8" height="4" fill="#15803d"/>
+  <rect x="8" y="20" width="12" height="6" fill="#15803d"/>
+  <rect x="52" y="16" width="8" height="4" fill="#15803d"/>
+  <rect x="44" y="20" width="12" height="6" fill="#15803d"/>
+  <!-- Head Base -->
+  <rect x="20" y="12" width="24" height="32" fill="#22c55e"/>
+  <rect x="16" y="20" width="32" height="16" fill="#22c55e"/>
+  <!-- Shadows/Contour -->
+  <rect x="20" y="12" width="24" height="4" fill="#15803d"/>
+  <rect x="16" y="28" width="4" height="8" fill="#15803d"/>
+  <rect x="44" y="28" width="4" height="8" fill="#15803d"/>
+  <!-- Malevolent Yellow Eyes -->
+  <rect x="22" y="22" width="8" height="6" fill="#fef08a"/>
+  <rect x="34" y="22" width="8" height="6" fill="#fef08a"/>
+  <rect x="26" y="23" width="3" height="4" fill="#a16207"/>
+  <rect x="35" y="23" width="3" height="4" fill="#a16207"/>
+  <!-- Pointy Nose -->
+  <rect x="30" y="26" width="4" height="8" fill="#15803d"/>
+  <rect x="28" y="30" width="8" height="4" fill="#15803d"/>
+  <!-- Snarl / Mouth -->
+  <rect x="22" y="36" width="20" height="4" fill="#14532d"/>
+  <rect x="24" y="35" width="3" height="3" fill="#fef08a"/> <!-- Fang Up -->
+  <rect x="37" y="35" width="3" height="3" fill="#fef08a"/> <!-- Fang Up -->
+  <rect x="30" y="38" width="4" height="3" fill="#fef08a"/> <!-- Fang Down -->
+  <!-- Ragged Armor -->
+  <rect x="16" y="44" width="32" height="16" fill="#78350f"/>
+  <rect x="24" y="44" width="16" height="16" fill="#451a03"/>
+  <rect x="20" y="48" width="4" height="4" fill="#a16207"/>
+</svg>
