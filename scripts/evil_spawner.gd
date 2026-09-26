@@ -7,7 +7,7 @@ const EvilCharacterScript = preload("res://scripts/evil_character.gd")
 @export var min_distance = 60.0
 @export var max_level = 3
 @export var level_complete_pause = 2.0
-@export var level_time_limit = 10.0
+@export var level_time_limit = 5.0
 @onready var end_screen = get_node("../EndScreen")
 @onready var timer_label = get_node("../HUD/TimerLabel")
 
@@ -44,7 +44,7 @@ func _on_level_cleared():
 	if current_level >= max_level:
 		end_screen.show_message("You Won!")
 	else:
-		end_screen.show_message("Great job, Level %d complete!" % current_level)
+		end_screen.show_message("Level %d complete!" % current_level)
 		await get_tree().create_timer(level_complete_pause).timeout
 		end_screen.hide_message()
 		current_level += 1
@@ -55,7 +55,7 @@ func _on_time_up():
 	game_over = true
 	for evil in get_children():
 		evil.queue_free()
-	end_screen.show_message("Sorry, Game Over")
+	end_screen.show_message("Time out - Game Over")
 
 func _ready():
 	_spawn_level()
